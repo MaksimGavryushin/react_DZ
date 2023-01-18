@@ -1,4 +1,5 @@
-import PropTypes from 'prop-types'
+import uuid from 'react-uuid';
+import PropTypes from 'prop-types';
 
 export function MessageList({ messages }) {
 
@@ -6,8 +7,10 @@ export function MessageList({ messages }) {
         <>
             <h1>MessageList</h1>
             <ul>
-                {messages.map((item, index) => (
-                    <li key={index}>{item.text}</li>
+                {messages.map((message) => (
+                    <li key={uuid()}>
+                        {message.author} : {message.text}
+                    </li>
                 ))}
             </ul>
         </>
